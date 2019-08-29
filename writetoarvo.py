@@ -9,7 +9,8 @@ def getblockhash(height):
         cfg = yaml.load(ymlfile)
     url = cfg['bitcoind']['url']
     rpc_connection = AuthServiceProxy(url)
-    best_block_hash = rpc_connection.getbestblockhash()
+    blockhash = rpc_connection.getblockhash(height)
+    print("blockhash of height " + str(height) " = " + blockhash )
     print(rpc_connection.getblock(best_block_hash))
     print(height)
 
