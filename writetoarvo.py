@@ -1,5 +1,6 @@
 #!/usr/bin/python
-import bitcoinrpc
+# import bitcoinrpc
+from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 import yaml
 
 def getblockhash(height):
@@ -7,7 +8,7 @@ def getblockhash(height):
     with open("config.yml", 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
     url = cfg['bitcoind']['url']
-    rpc_connection = bitcoinrpc.AuthServiceProxy(url)
+    rpc_connection = AuthServiceProxy(url)
     best_block_hash = rpc_connection.getbestblockhash()
     print(rpc_connection.getblock(best_block_hash))
     print(height)
