@@ -10,3 +10,7 @@ def getblockhash(height):
     rpc_connection = bitcoinrpc.AuthServiceProxy(url)
     best_block_hash = rpc_connection.getbestblockhash()
     print(rpc_connection.getblock(best_block_hash))
+    print(height)
+
+if __name__ == "__main__":
+    getblockhash(1)
