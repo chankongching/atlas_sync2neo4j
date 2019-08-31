@@ -1,0 +1,4 @@
+sha256==0.1
+base58==1.0.3
+mnemonic==0.18
+pbkdf2==1.3
