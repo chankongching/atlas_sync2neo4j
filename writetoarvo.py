@@ -3,8 +3,7 @@
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 import yaml
 import json
-# from lib.txn import Transaction
-from cryptos import *
+from btctools import Transaction
 
 
 def getblockhash(height):
@@ -19,14 +18,9 @@ def getblockhash(height):
     print(height)
     #print(rpc_connection.getrawtransaction(''))
     rawtransaction = rpc_connection.getrawtransaction('75a98ce35b869772adbf643b3f8acadfa5b46b4cd8bfef26f9e079c517018285')
-    #access = AuthServiceProxy("PRIVATEDETAILS")
     print(rawtransaction)
-    # tx, _ = Transaction.from_bytes(bytes.fromhex(rawtransaction))
-    # jsonobj = Transaction.__json__(tx)
-    # print(jsonobj)
-    # print(json.dumps(jsonobj, indent=4, sort_keys=True))
-    c = Bitcoin()
-    print(c.inspect(rawtransaction))
+    tx = Transaction.from_hex(rawtransaction)
+    print(tx.json().dumps(parsed, indent=4, sort_keys=True))
 
 if __name__ == "__main__":
     getblockhash(300000)
