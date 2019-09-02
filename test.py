@@ -6,4 +6,4 @@ raw = '0100000019b4a58614f779d44e230882c67b16af97054a1c59d311bec016d3f4a64483a49
 
 tx = Transaction.from_hex(raw)
 
-print(tx.json)
+print(tx.json())
